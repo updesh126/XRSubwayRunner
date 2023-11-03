@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class characterMovementHelper : MonoBehaviour
@@ -10,6 +11,9 @@ public class characterMovementHelper : MonoBehaviour
     private CharacterController x_CharacterController;
     private CharacterControllerDriver driver;
     public float speed =10f;
+    public int Check = 3;
+    [SerializeField]
+    GameObject GameOverUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,5 +49,26 @@ public class characterMovementHelper : MonoBehaviour
 
         x_CharacterController.height = height;
         x_CharacterController.center = center;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Box")
+        {
+            --Check;
+            GameOver();
+        }
+    }
+    private void GameOver()
+    {
+        if(Check == 0)
+        {
+            speed = 0f;
+            GameOverUI.SetActive(true);
+        }
+    }
+    public void ResetGame(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }

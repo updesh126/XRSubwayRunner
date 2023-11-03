@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Anchor
-  - OpenDoor
   - SpawnTrigger
+  - Box
   layers:
   - Default
   - TransparentFX
