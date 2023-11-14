@@ -7,19 +7,24 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class characterMovementHelper : MonoBehaviour
 {
+    public SpawnManager spawnManager;
     private XROrigin x_XROrigin;
     private CharacterController x_CharacterController;
     private CharacterControllerDriver driver;
     public float speed =10f;
-    public int Check = 3;
+
     [SerializeField]
     GameObject GameOverUI;
+    bool isCollied= false;
+
+    private ScoringSystem scoringSystem;
     // Start is called before the first frame update
     void Start()
     {
         x_XROrigin= GetComponent<XROrigin>();
         driver = GetComponent<CharacterControllerDriver>();
         x_CharacterController = GetComponent<CharacterController>();
+        scoringSystem = new ScoringSystem();
     }
 
     // Update is called once per frame
@@ -53,22 +58,38 @@ public class characterMovementHelper : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Box")
+        //Debug.Log("Hello");
+        if(other.gameObject.tag == "Box" && isCollied ==false)
         {
-            --Check;
             GameOver();
+            isCollied = true;
         }
+        if (other.gameObject.tag == "Coin")
+        {
+            Destroy(other.gameObject);
+            scoringSystem.AddScore(1);
+            Debug.Log("Coin");
+        }
+        if (other.gameObject.tag == "SpawnTrigger") {
+            spawnManager.spawnTriggerEntered();
+        }
+            
+
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isCollied = false;
+    }
+
     private void GameOver()
     {
-        if(Check == 0)
-        {
-            speed = 0f;
-            GameOverUI.SetActive(true);
-        }
+        speed = 0f;
+        GameOverUI.SetActive(true);
     }
     public void ResetGame(string name)
     {
+        scoringSystem.Reset();
         SceneManager.LoadScene(name);
     }
 }
