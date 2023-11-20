@@ -8,6 +8,8 @@ TagManager:
   - SpawnTrigger
   - Box
   - Coin
+  - RightWall
+  - LeftWall
   layers:
   - Default
   - TransparentFX
