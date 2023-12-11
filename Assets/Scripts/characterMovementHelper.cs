@@ -17,6 +17,8 @@ public class characterMovementHelper : MonoBehaviour
     GameObject GameOverUI;
     bool isCollied= false;
 
+    private CharacterController characterController;
+
     private ScoringSystem scoringSystem;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class characterMovementHelper : MonoBehaviour
         driver = GetComponent<CharacterControllerDriver>();
         x_CharacterController = GetComponent<CharacterController>();
         scoringSystem = new ScoringSystem();
+        characterController = GetComponent<CharacterController>();
+       
     }
 
     // Update is called once per frame
@@ -33,7 +37,10 @@ public class characterMovementHelper : MonoBehaviour
         float distanceToMove = speed * Time.deltaTime;
 
         // Move the object in the X direction
-        transform.Translate(Vector3.forward * distanceToMove);
+        //transform.Translate(Vector3.forward * distanceToMove);
+
+        Vector3 forward = x_XROrigin.transform.TransformDirection(Vector3.forward);
+        characterController.SimpleMove(forward * speed);
 
         UpdateCharacterController();
     }
