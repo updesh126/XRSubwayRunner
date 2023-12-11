@@ -6,7 +6,7 @@ using UnityEngine;
 public class RoadManager : MonoBehaviour
 {
     public List<GameObject> roads;
-    private float offset = 20f;
+    private float offset = 106f;
 
     // Start is called before the first frame update
     void Start()

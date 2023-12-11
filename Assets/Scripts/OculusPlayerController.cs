@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -16,8 +17,16 @@ public class OculusPlayerController : MonoBehaviour
     public bool isPlaying = false;
     CharacterController characterController;
 
+    [SerializeField]
+    GameObject GameOverUI;
+    bool isCollied = false;
+
+    public SpawnManager spawnManager;
+    private ScoringSystem scoringSystem;
+
     private void Start()
     {
+        scoringSystem = new ScoringSystem();
         characterController = GetComponent<CharacterController>();
     }
     private void Update()
@@ -35,6 +44,43 @@ public class OculusPlayerController : MonoBehaviour
             Vector3 foward = VRPlayer.TransformDirection(Vector3.forward);
             characterController.SimpleMove(foward * speed);
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log("Hello");
+        if (other.gameObject.tag == "Box" && isCollied == false)
+        {
+            GameOver();
+            isCollied = true;
+        }
+        if (other.gameObject.tag == "Coin")
+        {
+            Destroy(other.gameObject);
+            scoringSystem.AddScore(1);
+            Debug.Log("Coin");
+        }
+        if (other.gameObject.tag == "SpawnTrigger")
+        {
+            spawnManager.spawnTriggerEntered();
+        }
+
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isCollied = false;
+    }
+
+    private void GameOver()
+    {
+        speed = 0f;
+        GameOverUI.SetActive(true);
+    }
+    public void ResetGame(string name)
+    {
+        scoringSystem.Reset();
+        SceneManager.LoadScene(name);
     }
 
 }
