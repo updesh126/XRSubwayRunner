@@ -47,7 +47,7 @@ public class OculusPlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Hello");
+        Debug.Log("Hello");
         if (other.gameObject.tag == "Box" && isCollied == false)
         {
             GameOver();
