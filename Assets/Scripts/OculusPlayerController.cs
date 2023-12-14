@@ -48,6 +48,11 @@ public class OculusPlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Hello");
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("Collid");
+            spawnManager.spawnTriggerEntered();
+        }
         if (other.gameObject.tag == "Box" && isCollied == false)
         {
             GameOver();
@@ -59,10 +64,8 @@ public class OculusPlayerController : MonoBehaviour
             scoringSystem.AddScore(1);
             Debug.Log("Coin");
         }
-        if (other.gameObject.tag == "SpawnTrigger")
-        {
-            spawnManager.spawnTriggerEntered();
-        }
+        //if (other.gameObject.tag == "SpawnTrigger")
+        
 
 
     }

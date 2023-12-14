@@ -13,7 +13,7 @@ public class RoadManager : MonoBehaviour
     {
         if(roads != null && roads.Count > 0)
         {
-            roads = roads.OrderBy(r => r.transform.position.x).ToList();
+            roads = roads.OrderBy(r => r.transform.position.z).ToList();
         }
     }
 
@@ -22,9 +22,9 @@ public class RoadManager : MonoBehaviour
         //yield return new WaitForSeconds(3);
         GameObject movedRoad = roads[0];
         roads.Remove(movedRoad);
-        float newX = roads[roads.Count - 1].transform.position.x + offset;
-        movedRoad.transform.position = new Vector3(newX, 0, 0);
-        
+        float newX = roads[roads.Count - 1].transform.position.z + offset;
+        movedRoad.transform.position = new Vector3(0, 0, newX);
+
         roads.Add(movedRoad);
     }
 }
