@@ -8,7 +8,7 @@ public class SpawnObs : MonoBehaviour
     public Transform[] parentPoints; // AN array of positons
     public Vector3 spawnOffset = Vector3.zero;
 
-    private void Start()
+    private void Awake()
     {
         SpawnObj();
         SpawnObj();

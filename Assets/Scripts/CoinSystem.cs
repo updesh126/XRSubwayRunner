@@ -11,7 +11,7 @@ public class CoinSystem : MonoBehaviour
     public Transform[] PositionR;
 
 
-    private void Start()
+    private void Awake()
     {
         SpawnCoin();
         SpawnCoin();

@@ -26,6 +26,7 @@ public class OculusPlayerController : MonoBehaviour
 
     private void Start()
     {
+        speed = 0f;
         scoringSystem = new ScoringSystem();
         characterController = GetComponent<CharacterController>();
     }
@@ -68,6 +69,11 @@ public class OculusPlayerController : MonoBehaviour
         
 
 
+    }
+
+    public void StartPlayer(float PlayerSpeed)
+    {
+        speed = PlayerSpeed;
     }
 
     private void OnTriggerExit(Collider other)
