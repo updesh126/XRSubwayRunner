@@ -10,7 +10,7 @@ public class OculusPlayerController : MonoBehaviour
 {
     public Transform VRPlayer;
 
-    public float lookDoownAngle = 25.0f;
+    public float lookDoownAngle = 15.0f;
 
     public float speed = 3.0f;
 
@@ -32,7 +32,7 @@ public class OculusPlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if(VRPlayer.eulerAngles.x < lookDoownAngle && VRPlayer.eulerAngles.x < 90.0f) {
+        if(VRPlayer.eulerAngles.x < lookDoownAngle && VRPlayer.eulerAngles.x < 120.0f) {
             isPlaying = true;
         }
         else
