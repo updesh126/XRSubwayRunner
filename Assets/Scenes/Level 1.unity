@@ -3933,7 +3933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VRPlayer: {fileID: 1243030927}
   lookDoownAngle: 25
-  speed: 15
+  speed: 10
   isPlaying: 0
   GameOverUI: {fileID: 1069722427}
   spawnManager: {fileID: 1778455875}
