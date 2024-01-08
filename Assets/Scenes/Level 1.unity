@@ -2933,7 +2933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4000,7 +4000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1191780091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4428,7 +4428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1392858171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6002,7 +6002,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 127065739}
   - {fileID: 85481481}
-  - {fileID: 1191780096}
   - {fileID: 8968387587674496503}
   - {fileID: 2137197468}
   - {fileID: 83765781}
@@ -6011,5 +6010,6 @@ SceneRoots:
   - {fileID: 1537434556}
   - {fileID: 424723693}
   - {fileID: 1392858173}
+  - {fileID: 1191780096}
   - {fileID: 934479738}
   - {fileID: 261086894}
