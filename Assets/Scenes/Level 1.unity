@@ -3609,7 +3609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Right_H: 0
   Left_H: 0
-  oculusPlayerController: {fileID: 1392858174}
+  oculusPlayerController: {fileID: 1191780091}
 --- !u!54 &934479734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4014,7 +4014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VRPlayer: {fileID: 1243030927}
-  lookDoownAngle: 0
+  lookDoownAngle: 25
   speed: 3
   isPlaying: 0
   GameOverUI: {fileID: 1069722427}

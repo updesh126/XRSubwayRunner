@@ -26,7 +26,7 @@ public class StartGame : MonoBehaviour
         if (Right_H == true && Left_H == true)
         {
             Debug.Log("Final done");
-            oculusPlayerController.StartPlayer(20.0f);
+            oculusPlayerController.StartPlayer(10.0f);
         }
     }
 }
