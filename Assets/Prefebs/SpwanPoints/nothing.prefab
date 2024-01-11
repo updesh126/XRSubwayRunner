@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8156889026269893385}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: nothing
-  m_TagString: Untagged
+  m_TagString: nothing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8156889026269893385
 Transform:

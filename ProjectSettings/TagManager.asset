@@ -11,6 +11,9 @@ TagManager:
   - Wall
   - RightHand
   - LeftHand
+  - RightWall
+  - LeftWall
+  - nothing
   layers:
   - Default
   - TransparentFX
